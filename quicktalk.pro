@@ -45,3 +45,5 @@ HEADERS += \
     udpsender.h \
     userdata.h \
     usertool.h
+
+DISTFILES +=

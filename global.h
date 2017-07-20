@@ -3,7 +3,7 @@
 #include<QImage>
 #include<QTime>
 #include<QHostAddress>
-
+#include<QDir>
 struct Message{
     QString userPicUrl;
     QString username;
@@ -17,4 +17,5 @@ struct UserInformation{
     QString messageContent;
     QString userPicUrl;
 };
+
 #endif // GLOBAL_H

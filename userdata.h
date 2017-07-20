@@ -28,6 +28,7 @@ signals:
     void userPicUrlChanged();
     void userDataChanged();
 public slots:
+    void savedatachange();
 };
 
 #endif // USERDATA_H
