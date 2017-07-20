@@ -7,11 +7,13 @@
 class UserTool : public QObject
 {
     Q_OBJECT
-    UserData userdata;
+    UserData *userdata;
     JsonSender sender;
+
 public:
 
     explicit UserTool(QObject *parent = 0);
+    explicit UserTool(UserData * userdata,QObject *parent = 0);
     Q_INVOKABLE void sendMessage(QString message);
     Q_INVOKABLE bool istMyIp(QString ipaddr);
 

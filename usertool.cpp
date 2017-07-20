@@ -9,11 +9,16 @@ UserTool::UserTool(QObject *parent) : QObject(parent)
 
 }
 
+UserTool::UserTool(UserData *userdata, QObject *parent)
+{
+    this->userdata=userdata;
+}
+
 void UserTool::sendMessage(QString message)
 {
     QJsonObject json;
     json.insert("content", message);
-    json.insert("username", userdata.getUsername());
+    json.insert("username", userdata->getUsername());
     json.insert("app","quicktalk");
     json.insert("type","message");
     qDebug()<<"send message success!";

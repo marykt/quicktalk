@@ -1,5 +1,6 @@
 .pragma library
 var Component_Ready =1;
+
 function  createxx(file,parent)
 {
     var component = Qt.createComponent(file);

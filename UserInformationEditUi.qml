@@ -5,7 +5,14 @@ import org.example 1.0
 Rectangle {
     signal backtoroot
     id: rectangle
-    visible: false
+   // visible: false
+//    UserData{//个人数据的改变不能同步
+//        //fix1:
+//        //使用static:
+//        //fix2:
+//        //使用js加载用户信息然后用js实现usertoolhh
+//        id:userData
+//    }
     Button {
         id: button
         x: 0
@@ -34,19 +41,20 @@ Rectangle {
             id: image
             Layout.preferredHeight: 50
             Layout.preferredWidth: 50
-            source: "qrc:图片1.jpg"
+            source: userdata.userPicUrl
         }
 
         TextField {
             id: textField
-            text: qsTr("Text Field")
+            text: qsTr(userdata.username)
             Layout.preferredHeight: 40
             Layout.preferredWidth: 217
         }
 
         TextArea {
             id: textArea
-            text: qsTr("Text Area")
+            text: qsTr(userdata.userProfile)
+            wrapMode: Text.WrapAnywhere
             Layout.preferredHeight: 232
             Layout.preferredWidth: 217
         }
@@ -111,7 +119,12 @@ Rectangle {
             text: qsTr("保存")
             Layout.preferredHeight: 40
             Layout.preferredWidth: 180
-             onClicked: {rectangle.backtoroot()}
+             onClicked: {
+                 userdata.username=textField.text;
+                // userData.userPicUrl
+                 userdata.userProfile=textArea.text;
+                 rectangle.backtoroot()
+             }
         }
     }
 }
