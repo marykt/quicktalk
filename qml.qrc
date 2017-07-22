@@ -12,5 +12,9 @@
         <file>Global.js</file>
         <file>MeunUi.qml</file>
         <file>UserInformationEditUi.qml</file>
+        <file>MFileDialog.qml</file>
+        <file>MFileDialogLineStyle.qml</file>
+        <file>folder-yellow-32.png</file>
+        <file>Test.qml</file>
     </qresource>
 </RCC>

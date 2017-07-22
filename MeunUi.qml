@@ -1,9 +1,10 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.1
-
+import QtQuick.Dialogs 1.0
 Rectangle{
     id: item1
     signal createWindow(string s);
+    signal showUserImgSelectWindow();
     Image {
         id: image
         x: 15
@@ -11,7 +12,8 @@ Rectangle{
         width: 50
         height: 50
         anchors.horizontalCenter: parent.horizontalCenter
-        source: "qrc:图片1.jpg"
+        source: userdata.userPicUrl
+
     }
 
     Button {

@@ -1,4 +1,5 @@
 QT += qml quick core network
+
 CONFIG += c++11
 
 SOURCES += main.cpp \
@@ -9,7 +10,8 @@ SOURCES += main.cpp \
     udpreceiver.cpp \
     udpsender.cpp \
     userdata.cpp \
-    usertool.cpp
+    usertool.cpp \
+    nativefiledialog.cpp
 
 RESOURCES += qml.qrc
 
@@ -44,6 +46,7 @@ HEADERS += \
     udpreceiver.h \
     udpsender.h \
     userdata.h \
-    usertool.h
+    usertool.h \
+    nativefiledialog.h
 
 DISTFILES +=

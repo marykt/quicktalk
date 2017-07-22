@@ -25,10 +25,6 @@ Item {
                 }
             }
         }
-//        UserTools{
-//        id :tool
-
-//        }
     }
 
 }

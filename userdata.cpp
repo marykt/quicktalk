@@ -95,6 +95,7 @@ void UserData::setUserPicUrl(QString dir)
 {
     userPicUrl=dir;
     emit userPicUrlChanged();
+    emit userDataChanged();
 }
 
 void UserData::setUserProfile(QString userProfile)
@@ -108,6 +109,7 @@ void UserData::setUsername(QString username)
 {
     this->username=username;
     emit usernameChanged();
+    emit userDataChanged();
 
 }
 

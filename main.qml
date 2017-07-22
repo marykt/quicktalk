@@ -74,9 +74,10 @@ ApplicationWindow {
 
                                     }
 
-                                    else
+                                    else{
                                         var say=Helper.createxx("ISayUi.qml",messageColumn);
-
+                                        say.img=userdata.userPicUrl
+                                        }
                                     say.text=qsTr(getMessageBoxContentat(getMessageBoxSize()-1))//.messageContent)
                                     // say.text=qsTr(getMessageBoxIpat(getMessageBoxSize()-1))
                                     console.log(flickarea.contentY)

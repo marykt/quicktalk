@@ -1,18 +1,18 @@
 import QtQuick 2.7
+import QtQuick.Dialogs 1.0
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 import org.example 1.0
-Rectangle {
+import "Global.js"   as  Helper
+Rectangle{
+    anchors.fill: parent
     signal backtoroot
     id: rectangle
+Rectangle {
+    anchors.fill: parent
+    id:secondRec
    // visible: false
-//    UserData{//个人数据的改变不能同步
-//        //fix1:
-//        //使用static:
-//        //fix2:
-//        //使用js加载用户信息然后用js实现usertoolhh
-//        id:userData
-//    }
+
     Button {
         id: button
         x: 0
@@ -42,7 +42,73 @@ Rectangle {
             Layout.preferredHeight: 50
             Layout.preferredWidth: 50
             source: userdata.userPicUrl
+            MouseArea{
+                anchors.fill: parent
+
+//                MFileDialog{
+//                    id:fileDlg
+//                visible: false
+//                onSelected: {
+//                    userdata.userPicUrl=path;
+//                }
+
+             //   }
+                onClicked: {
+                    //fileDlg.visible=true
+                    secondRec.visible=false
+                    var s;
+                    s="MFileDialog.qml"
+                    console.log(s)
+                    var w=Helper.createxx(s,rectangle)//c创建失败
+                   w.visible=true;
+                    var back=function()  {
+                          secondRec.visible=true;
+                        w.destroy();
+
+                    }
+                    var setv=function(){
+                        userdata.userPicUrl=w.selectedFile;
+
+                    }
+                    w.ok.connect(setv)
+                    w.backtoroot.connect(back)
+                }
+            }
         }
+//Thanks https://stackoverflow.com/questions/15079406/qt-necessitas-reasonable-qfiledialog-replacement-skin
+//           MouseArea{
+//            anchors.fill:parent
+
+//            FileDialog {
+//                id: fileDialog
+//                width: rectangle.width
+//                height: rectangle.height
+
+//                selectMultiple: false
+//                    //    selectExisting: true
+//                   //     selectFolder: true
+//                        sidebarVisible: false
+//                 //nameFilters: [ "Image files (*.png *.jpg *.gif *.jpeg *.tiff *.pbm *.bmp)" ]
+
+//                title: "Please choose a picture"
+//                onAccepted: {
+//                    userdata.userPicUrl=fileDialog.fileUrls[0]
+//                  //  console.log( fileDialog.fileUrls[0])
+//                   // Qt.quit()
+//                }
+//                onRejected: {
+//                    console.log("Canceled")
+//                    //Qt.quit()
+//                }
+//               // Component.onCompleted: visible = true
+//            }
+//            onClicked: {
+//            fileDialog.visible=true
+
+//            }
+//           }
+
+      //  }
 
         TextField {
             id: textField
@@ -127,4 +193,5 @@ Rectangle {
              }
         }
     }
+}
 }
