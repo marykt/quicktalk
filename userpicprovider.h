@@ -8,18 +8,18 @@
 class UserpicProvider :public QQuickImageProvider
 {
 
-//signals:
-//    void dataChanged();
+    //signals:
+    //    void dataChanged();
 public:
-     QMap<QString ,QPixmap> data;
+    QMap<QString ,QPixmap> data;
     UserpicProvider(): QQuickImageProvider(QQuickImageProvider::Pixmap)
     {
 
     }
-//    void addValueToData(QString key,QPixmap value){
-//        data.insert(key,value);
-//        emit dataChanged();
-//    }
+    //    void addValueToData(QString key,QPixmap value){
+    //        data.insert(key,value);
+    //        emit dataChanged();
+    //    }
     QPixmap requestPixmap(const QString &id, QSize *size, const QSize &requestedSize)
     {
         int width = 50;
@@ -31,22 +31,22 @@ public:
                        requestedSize.height() > 0 ? requestedSize.height() : height);
         qDebug()<<"find key:"<<id;
         if(data.contains(id)){
-          return  data.find(id).value();
-          //  return data.take(id);
+            return  data.find(id).value();
+            //  return data.take(id);
 
 
         }
 
-      //  QEventLoop eventLoop;
-      //  QObject::connect(this, SIGNAL(dataChanged()), &eventLoop, SLOT(quit()));
-       // eventLoop.exec();
+        //  QEventLoop eventLoop;
+        //  QObject::connect(this, SIGNAL(dataChanged()), &eventLoop, SLOT(quit()));
+        // eventLoop.exec();
 
-//        if(data.contains(id)){
-//          return  data.find(id).value();
-//          //  return data.take(id);
+        //        if(data.contains(id)){
+        //          return  data.find(id).value();
+        //          //  return data.take(id);
 
 
-//        }
+        //        }
         else{
             pixmap.fill(QColor("white").rgba());
             //如果有信息则返回

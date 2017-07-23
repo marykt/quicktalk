@@ -17,19 +17,19 @@ Rectangle{
         cache: false
     }
     Rectangle{
-            x:userPic.x+userPic.width+userPic.x-15
-            y:0
-            width: parent.width
-            Label{
-                id:usernameLable
+        x:userPic.x+userPic.width+userPic.x-15
+        y:0
+        width: parent.width
+        Label{
+            id:usernameLable
             text:qsTr("匿名：")
-            }
+        }
 
     }
     Rectangle{
-            x:userPic.x+userPic.width+userPic.x-15
-            y:20
-            width: parent.width
+        x:userPic.x+userPic.width+userPic.x-15
+        y:20
+        width: parent.width
 
         Canvas	{
             width:	containText.width+30;	height:containText.height+20

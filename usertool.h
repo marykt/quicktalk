@@ -9,7 +9,7 @@ class UserTool : public QObject
     Q_OBJECT
 
 public:
-     UserData *userdata;
+    UserData *userdata;
     JsonSender sender;
     explicit UserTool(QObject *parent = 0);
     explicit UserTool(UserData * userdata,QObject *parent = 0);

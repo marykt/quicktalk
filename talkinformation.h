@@ -16,24 +16,24 @@ public:
     explicit TalkInformation(QObject *parent = 0){
 
     }
-//explicit UserTool(UserData * userdata,QObject *parent = 0);
-   explicit  TalkInformation(UserpicProvider *provider,UserTool *tool,QObject *parent = 0);
+    //explicit UserTool(UserData * userdata,QObject *parent = 0);
+    explicit  TalkInformation(UserpicProvider *provider,UserTool *tool,QObject *parent = 0);
     ~TalkInformation();
     UserpicProvider* provider;
     UserTool *tool;
     QList <Message>messageBox;//聊天信息
-   Q_INVOKABLE int getMessageBoxSize();
-//    struct Message{
-//        QString userPicUrl;
-//        QString username;
-//        QString messageContent;
-//        QHostAddress host;
-//        QTime time;
-//    };
-  Q_INVOKABLE  QString getMessageBoxContentat(int value);
-      Q_INVOKABLE  QString getMessageBoxUsernameat(int value);
+    Q_INVOKABLE int getMessageBoxSize();
+    //    struct Message{
+    //        QString userPicUrl;
+    //        QString username;
+    //        QString messageContent;
+    //        QHostAddress host;
+    //        QTime time;
+    //    };
+    Q_INVOKABLE  QString getMessageBoxContentat(int value);
+    Q_INVOKABLE  QString getMessageBoxUsernameat(int value);
     Q_INVOKABLE  QString getMessageBoxUserPicUrlat(int value);
-     Q_INVOKABLE  QString getMessageBoxIpat(int value);
+    Q_INVOKABLE  QString getMessageBoxIpat(int value);
 
 private:
     OthersUsersInformation othersUsersInformation;

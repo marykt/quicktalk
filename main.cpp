@@ -13,18 +13,18 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<UserTool>("org.example",	1,	0,	"UserTools");
     qmlRegisterType<UserData>("org.example",	1,	0,	"UserData");
-     qmlRegisterType<TalkInformation>("org.example",	1,	0,	"TalkInformation");
+    qmlRegisterType<TalkInformation>("org.example",	1,	0,	"TalkInformation");
     UserData userdata;
     UserTool tool(&userdata);
     //信息管理
-    UserpicProvider *userpicProvider=new UserpicProvider();//将直接声明改为new 一个解决下面的问题
+    UserpicProvider *userpicProvider=new UserpicProvider();//将直接声明改为new一个,解决下面的问题
     TalkInformation talkinformation(userpicProvider,&tool);
 
 
     engine.addImageProvider(QLatin1String("userpic"), userpicProvider);//这句话会导致程序不正常的退出
-   engine.rootContext()->setContextProperty("userdata", &userdata);
+    engine.rootContext()->setContextProperty("userdata", &userdata);
     engine.rootContext()->setContextProperty("tool", &tool);
-   engine.rootContext()->setContextProperty("talkinformation", &talkinformation);
+    engine.rootContext()->setContextProperty("talkinformation", &talkinformation);
 
     // qmlRegisterType<Message>("org.example",	1,	0,	"sss");
 

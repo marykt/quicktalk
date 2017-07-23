@@ -3,19 +3,19 @@ import QtQuick.Controls 2.1
 //unused
 Rectangle {
     // visible: false
-   //  anchors.fill: parent
-     id:fileDlgRoot;
-     //state:"hidden";
-   //  color: "#212126";
+    //  anchors.fill: parent
+    id:fileDlgRoot;
+    //state:"hidden";
+    //  color: "#212126";
 
-     property string folderPathName: "file://../";
+    property string folderPathName: "file://../";
     property bool rootPath:false;
-     property string selectedFile: "";
+    property string selectedFile: "";
     // signal message(string msg);
 
-     property int lineHeight: 90;
-     //signal selected(String path);
-     signal backtoroot();
+    property int lineHeight: 90;
+    //signal selected(String path);
+    signal backtoroot();
     Button {
         id: button
         y: 0
@@ -42,6 +42,6 @@ Rectangle {
             fileDlgRoot.backtoroot
         }
 
-}
+    }
 
 }

@@ -61,25 +61,26 @@ ApplicationWindow {
                         Column{
                             id:messageColumn
                             width: parent.width
-                          //  height:0
-//                            UserTools{
-//                                id:tool
-//                            }
+                            //  height:0
+                            //                            UserTools{
+                            //                                id:tool
+                            //                            }
 
 
 
                             //
                         }
-                    }}
-
-            }
-            Page {
-                Label {
-                    text: qsTr("Second page")
-                    anchors.centerIn: parent
-
+                    }
                 }
+
             }
+            //            Page {
+            //                Label {
+            //                    text: qsTr("Second page")
+            //                    anchors.centerIn: parent
+
+            //                }
+            //            }
 
         }
         InputAndSendUi{
@@ -116,7 +117,15 @@ ApplicationWindow {
                 w.backtoroot.connect(back)
 
             }
+            onShowOrClose:{
+                if(usermenus.x==0){
 
+                    usermenuhide.start()
+                }
+                else{
+                    usermenushow.start()
+                }
+            }
             NumberAnimation{
                 id :usermenushow
                 target: usermenus
@@ -150,7 +159,7 @@ ApplicationWindow {
             else{
                 var say=Helper.createxx("ISayUi.qml",messageColumn);
                 say.img=userdata.userPicUrl
-                }
+            }
             say.text=qsTr(talkinformation.getMessageBoxContentat(talkinformation.getMessageBoxSize()-1))//.messageContent)
             // say.te.0xt=qsTr(getMessageBoxIpat(getMessageBoxSize()-1))
             console.log(flickarea.contentY)
@@ -167,9 +176,9 @@ ApplicationWindow {
             console.log("a sayui.qml added")
 
         }
-         //w.ok.connect(setv)
+        //w.ok.connect(setv)
         talkinformation.messageBoxChanged.connect(c)
-        }
+    }
 
 
 

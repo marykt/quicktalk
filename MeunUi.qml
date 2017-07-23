@@ -5,6 +5,7 @@ Rectangle{
     id: item1
     signal createWindow(string s);
     signal showUserImgSelectWindow();
+    signal showOrClose();
     Image {
         id: image
         x: 15
@@ -26,10 +27,10 @@ Rectangle{
         anchors.horizontalCenterOffset: 0
         anchors.horizontalCenter: parent.horizontalCenter
         onClicked:{
-           item1.createWindow("UserInformationEditUi.qml")
+            item1.createWindow("UserInformationEditUi.qml")
 
 
-    }
+        }
     }
 
     Row {
@@ -46,13 +47,15 @@ Rectangle{
         Button {
             id: button1
             width:parent.width/2
-            text: qsTr("Button")
+            text: qsTr("hide")
+            onClicked: item1.showOrClose();
         }
 
         Button {
             id: button2
-              width:parent.width/2
+            width:parent.width/2
             text: qsTr("quit")
+            onClicked: Qt.quit()
         }
     }
 

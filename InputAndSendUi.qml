@@ -19,9 +19,9 @@ Item {
             text: qsTr("发送")
             onClicked:{
                 if(textField.text.length>0){
-                root.clicked()
-                tool.sendMessage(textField.text)
-                  textField.clear()
+                    root.clicked()
+                    tool.sendMessage(textField.text)
+                    textField.clear()
                 }
             }
         }

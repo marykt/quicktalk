@@ -24,7 +24,7 @@ import org.example 1.0
 //                "\n folderModel.parentFolder:", folderModel.parentFolder,
 //                "\n   folderModel.rootFolder:", folderModel.rootFolder);
 //}
- Rectangle{
+Rectangle{
     id:item1
     property alias text:text1.text
     property alias fontSize:text1.font.pixelSize
@@ -33,8 +33,8 @@ import org.example 1.0
     property alias isdir:mouseArea.isdir
     property alias checkBox: checkBox
     property alias mouseArea: mouseArea
-  //  signal iclicked;
-  //  signal iselectfile;
+    //  signal iclicked;
+    //  signal iselectfile;
 
 
     Text {
@@ -55,35 +55,35 @@ import org.example 1.0
         height: parent.height
         source: "qrc:/folder-yellow-32.png"
     }
-MouseArea{
-    id :mouseArea
-    anchors.fill: parent
-    property bool clickable:isdir
-   property bool isdir:true
-//    onClicked: {
+    MouseArea{
+        id :mouseArea
+        anchors.fill: parent
+        property bool clickable:isdir
+        property bool isdir:true
+        //    onClicked: {
 
-//        if(clickable)
-//        {
-//            console.log("clicked")
+        //        if(clickable)
+        //        {
+        //            console.log("clicked")
 
-//            item1.iclicked
-//        }
+        //            item1.iclicked
+        //        }
 
 
-//    }
+        //    }
 
-    CheckBox {
-        id: checkBox
-        anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
+        CheckBox {
+            id: checkBox
+            anchors.right: parent.right
+            anchors.verticalCenter: parent.verticalCenter
 
-        checked: false
+            checked: false
 
-//        onCheckedChanged:
-//        {
-//            console.log("checkchanged")
-//            item1.iselectfile
-//        }
+            //        onCheckedChanged:
+            //        {
+            //            console.log("checkchanged")
+            //            item1.iselectfile
+            //        }
+        }
     }
-}
 }

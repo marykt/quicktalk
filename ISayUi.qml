@@ -9,9 +9,9 @@ Rectangle{
     height:containText.height>70?containText.height:70
 
     Rectangle{
-            x:85
-            y:10
-            width: parent.width
+        x:85
+        y:10
+        width: parent.width
 
         Canvas	{
             width:	containText.width+30;	height:containText.height+20

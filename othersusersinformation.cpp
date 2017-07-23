@@ -9,7 +9,7 @@ OthersUsersInformation::OthersUsersInformation(QObject *parent) : QObject(parent
 UserInformation OthersUsersInformation::getInformationFromIP(QHostAddress host)
 {
     if(this->otherUsersinfo.contains( host.toString())){
-               // otherUsersinfo.
+        // otherUsersinfo.
         return otherUsersinfo.find(host.toString()).value();
     }
     else{
@@ -21,7 +21,7 @@ UserInformation OthersUsersInformation::getInformationFromIP(QHostAddress host)
         //发送信号请求用户信息
         JsonSender s;
         QJsonObject json;
-       // json.insert("username", userdata->getUsername());?
+        // json.insert("username", userdata->getUsername());?
         json.insert("aim",host.toString());
         json.insert("app","quicktalk");
         json.insert("type","getInformation");

@@ -3,9 +3,9 @@
 #include<QJsonParseError>
 #include<QJsonDocument>
 
-JsonReceiver::JsonReceiver(QObject *parent) : QObject(parent)
-
-{connect(&receiver,SIGNAL(readyRead()),this,SLOT(receiveJson()));}
+JsonReceiver::JsonReceiver(QObject *parent) : QObject(parent){
+  connect(&receiver,SIGNAL(readyRead()),this,SLOT(receiveJson()));
+}
 
 
 

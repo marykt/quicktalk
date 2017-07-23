@@ -38,12 +38,12 @@ void createFile(QString filePath,QString fileName)
 QString readini(QString key){
 
 
-     QSettings *configIniRead = new QSettings("data.ini", QSettings::IniFormat);
+    QSettings *configIniRead = new QSettings("data.ini", QSettings::IniFormat);
     QByteArray myArray = configIniRead->value(key).toByteArray();
     QTextCodec *codec=QTextCodec ::codecForName("utf8"); //设定字符集为GBK（大小写均可，还可用GB18030代替）
     QString outStr = codec->toUnicode(myArray); //这里就好解释了，通过译码器将字节数组中的值转化为UNICODE的QSTRING就O了
-     delete configIniRead;
-   return outStr;
+    delete configIniRead;
+    return outStr;
 }
 void writeini(QString key,QString value){
     //Qt中使用QSettings类读写ini文件
@@ -65,30 +65,30 @@ UserData::UserData(QObject *parent) : QObject(parent)
     }
     else{
 
-     createFile("","data.ini");
-     QSettings *configIniWrite = new QSettings("data.ini", QSettings::IniFormat);
-         qDebug()<<configIniWrite->allKeys()<< configIniWrite->isWritable();
-         configIniWrite->setIniCodec("utf-8");
-             configIniWrite->beginGroup("userData");
-             configIniWrite->setValue("userPicUrl","qrc:/图片1.jpg");
-             configIniWrite->setValue("username","");
-             configIniWrite->setValue("userProfile", "这个人有点懒，什么都没有留下哦！");
-         configIniWrite->endGroup();
+        createFile("","data.ini");
+        QSettings *configIniWrite = new QSettings("data.ini", QSettings::IniFormat);
+        qDebug()<<configIniWrite->allKeys()<< configIniWrite->isWritable();
+        configIniWrite->setIniCodec("utf-8");
+        configIniWrite->beginGroup("userData");
+        configIniWrite->setValue("userPicUrl","qrc:/图片1.jpg");
+        configIniWrite->setValue("username","");
+        configIniWrite->setValue("userProfile", "这个人有点懒，什么都没有留下哦！");
+        configIniWrite->endGroup();
 
-         delete configIniWrite;
+        delete configIniWrite;
 
     }
 
 
     //将读取到的ini文件保存在QString中，先取值，然后通过toString()函数转换成QString类型
-   //qDebug()<< configIniRead->allKeys();
+    //qDebug()<< configIniRead->allKeys();
     this->userPicUrl=readini("/userData/userPicUrl");
     this->username = readini("/userData/username");
     this->userProfile=readini("/userData/userProfile");
     //打印得到的结果
     //读入入完成后删除指针
 
-   connect(this,SIGNAL(userDataChanged()),this,SLOT(savedatachange()));
+    connect(this,SIGNAL(userDataChanged()),this,SLOT(savedatachange()));
 }
 
 void UserData::setUserPicUrl(QString dir)
@@ -102,7 +102,7 @@ void UserData::setUserProfile(QString userProfile)
 {
     this->userProfile=userProfile;
     emit userProfileChanged();
-     emit userDataChanged();
+    emit userDataChanged();
 }
 
 void UserData::setUsername(QString username)
@@ -130,21 +130,21 @@ QString UserData::getUserProfile()
 
 void UserData::savedatachange()
 {
-//qDebug()<<"saveUserData"<<userPicUrl<<username<<userProfile;
-QSettings *configIniWrite = new QSettings("data.ini", QSettings::IniFormat);
-  //  qDebug()<<configIniWrite->allKeys()<< configIniWrite->isWritable();
-   // configIniWrite->setIniCodec("utf-8");
-        configIniWrite->beginGroup("userData");
-        configIniWrite->setValue("userPicUrl", userPicUrl.toUtf8());
-        configIniWrite->setValue("username",username.toUtf8());
-        configIniWrite->setValue("userProfile", userProfile.toUtf8());
+    //qDebug()<<"saveUserData"<<userPicUrl<<username<<userProfile;
+    QSettings *configIniWrite = new QSettings("data.ini", QSettings::IniFormat);
+    //  qDebug()<<configIniWrite->allKeys()<< configIniWrite->isWritable();
+    // configIniWrite->setIniCodec("utf-8");
+    configIniWrite->beginGroup("userData");
+    configIniWrite->setValue("userPicUrl", userPicUrl.toUtf8());
+    configIniWrite->setValue("username",username.toUtf8());
+    configIniWrite->setValue("userProfile", userProfile.toUtf8());
     configIniWrite->endGroup();
 
     delete configIniWrite;
-//        writeini("/userData/userPicUrl", userPicUrl);
-//        //向ini文件的第一个节写入内容,ip节下的第二个参数
-//        writeini("/userData/username", username);
-//        //向ini文件的第二个节写入内容,port节下的第一个参数
-//        writeini("/userData/userProfile", userProfile);
+    //        writeini("/userData/userPicUrl", userPicUrl);
+    //        //向ini文件的第一个节写入内容,ip节下的第二个参数
+    //        writeini("/userData/username", username);
+    //        //向ini文件的第二个节写入内容,port节下的第一个参数
+    //        writeini("/userData/userProfile", userProfile);
 
 }
