@@ -11,7 +11,8 @@ SOURCES += main.cpp \
     udpsender.cpp \
     userdata.cpp \
     usertool.cpp \
-    nativefiledialog.cpp
+    nativefiledialog.cpp \
+    userpicprovider.cpp
 
 RESOURCES += qml.qrc
 
@@ -47,6 +48,7 @@ HEADERS += \
     udpsender.h \
     userdata.h \
     usertool.h \
-    nativefiledialog.h
+    nativefiledialog.h \
+    userpicprovider.h
 
 DISTFILES +=

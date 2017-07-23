@@ -26,7 +26,7 @@ void UdpReceiver::handleUdpData()
         //让datagram的大小为等待处理的数据报的大小，这样才能接收到完整的数据
         receiver->readDatagram(datagram.data(),datagram.size(),&host,&port);
         //接收数据报，将其存放到datagram中
-        qDebug()<<"receive data<<"<<datagram<<endl<<host<<port<<endl;
+       // qDebug()<<"receive data<<"<<datagram<<endl<<host<<port<<endl;
         //将数据报内容显示出来
         emit readyRead();
     }

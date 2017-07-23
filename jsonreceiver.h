@@ -29,9 +29,10 @@ public slots:
             if(parse_doucment.isObject())
             {
                 json=parse_doucment.object();
-                qDebug()<<"json<<"<<json<<endl;
+               // qDebug()<<"json<<"<<json<<endl;
                 host=receiver.host;
-                emit readyRead();
+                if(json.contains("app")&&json.take("app").toString()=="quicktalk")
+                    emit readyRead();
             }
         }
 

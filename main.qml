@@ -9,6 +9,7 @@ ApplicationWindow {
     width: 640
     height: 480
     title: qsTr("Hello World")
+
     Rectangle{
         id :mainRect
         anchors.fill: parent
@@ -60,40 +61,11 @@ ApplicationWindow {
                         Column{
                             id:messageColumn
                             width: parent.width
-                            height:0
+                          //  height:0
 //                            UserTools{
 //                                id:tool
 //                            }
-                            TalkInformation{
-                                id :talkInformation
-                                onMessageBoxChanged:{
-                                    if(!tool.istMyIp(getMessageBoxIpat(getMessageBoxSize()-1))){
-                                        var say=Helper.createxx("SayUi.qml",messageColumn);
-                                        // say.usernameText=qsTr(getMessageBoxUsernameat(getMessageBoxSize()-1));
-                                        say.usernametext=qsTr(getMessageBoxUsernameat(getMessageBoxSize()-1)+":");
 
-                                    }
-
-                                    else{
-                                        var say=Helper.createxx("ISayUi.qml",messageColumn);
-                                        say.img=userdata.userPicUrl
-                                        }
-                                    say.text=qsTr(getMessageBoxContentat(getMessageBoxSize()-1))//.messageContent)
-                                    // say.text=qsTr(getMessageBoxIpat(getMessageBoxSize()-1))
-                                    console.log(flickarea.contentY)
-                                    console.log(messageColumn.height)
-                                    if(flickarea.contentY==messageColumn.height-messageRec.height){
-                                        messageColumn.height=messageColumn.height+say.height
-                                        flickarea.contentY=messageColumn.height-messageRec.height
-                                    }
-                                    else{
-                                        messageColumn.height=messageColumn.height+say.height
-                                        // flickarea.contentY=messageColumn.height
-                                    }
-                                    console.log("a sayui.qml added")
-
-                                }
-                            }
 
 
                             //
@@ -165,5 +137,41 @@ ApplicationWindow {
 
         }
     }
+    Component.onCompleted: {
+        var c=function(){
+            if(!tool.istMyIp(talkinformation.getMessageBoxIpat(talkinformation.getMessageBoxSize()-1))){
+                var say=Helper.createxx("SayUi.qml",messageColumn);
+                // say.usernameText=qsTr(getMessageBoxUsernameat(getMessageBoxSize()-1));
+                say.usernametext=qsTr(talkinformation.getMessageBoxUsernameat(talkinformation.getMessageBoxSize()-1)+":");
+                say.img=talkinformation.getMessageBoxUserPicUrlat(talkinformation.getMessageBoxSize()-1);
+
+            }
+
+            else{
+                var say=Helper.createxx("ISayUi.qml",messageColumn);
+                say.img=userdata.userPicUrl
+                }
+            say.text=qsTr(talkinformation.getMessageBoxContentat(talkinformation.getMessageBoxSize()-1))//.messageContent)
+            // say.te.0xt=qsTr(getMessageBoxIpat(getMessageBoxSize()-1))
+            console.log(flickarea.contentY)
+            console.log(messageColumn.height)
+            console.log(messageColumn)
+            if(flickarea.contentY==messageColumn.height-messageRec.height){
+                messageColumn.height=messageColumn.height+say.height
+                flickarea.contentY=messageColumn.height-messageRec.height
+            }
+            else{
+                messageColumn.height=messageColumn.height+say.height
+                // flickarea.contentY=messageColumn.height
+            }
+            console.log("a sayui.qml added")
+
+        }
+         //w.ok.connect(setv)
+        talkinformation.messageBoxChanged.connect(c)
+        }
+
+
+
 }
 

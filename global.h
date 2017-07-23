@@ -10,6 +10,7 @@ struct Message{
     QString messageContent;
     QHostAddress host;
     QTime time;
+
 };
 struct UserInformation{
     QString username;

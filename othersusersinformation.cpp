@@ -1,5 +1,6 @@
 #include "othersusersinformation.h"
-
+#include"jsonsender.h"
+#include<QJsonObject>
 OthersUsersInformation::OthersUsersInformation(QObject *parent) : QObject(parent)
 {
 
@@ -8,21 +9,25 @@ OthersUsersInformation::OthersUsersInformation(QObject *parent) : QObject(parent
 UserInformation OthersUsersInformation::getInformationFromIP(QHostAddress host)
 {
     if(this->otherUsersinfo.contains( host.toString())){
-
-        return otherUsersinfo.take(host.toString());
+               // otherUsersinfo.
+        return otherUsersinfo.find(host.toString()).value();
     }
     else{
         UserInformation info;
         info.host=host;
         info.messageContent="";
         info.username="waiting";
-        info.userPicUrl="qrc:/图片1.jpg";
+        info.userPicUrl="image://userpic/"+host.toString();
+        //发送信号请求用户信息
+        JsonSender s;
+        QJsonObject json;
+       // json.insert("username", userdata->getUsername());?
+        json.insert("aim",host.toString());
+        json.insert("app","quicktalk");
+        json.insert("type","getInformation");
+        s.sendJson(json);
+        otherUsersinfo.insert(host.toString(),info);
         return info;
-        //后期应该发送一个信号
-        //通过向源用户请求详细信息来标识
-        //用户在进入时就应该先介绍自己一遍
-        //离开时应该说再见＠—＠
-
     }
 
 }

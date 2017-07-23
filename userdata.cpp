@@ -130,9 +130,9 @@ QString UserData::getUserProfile()
 
 void UserData::savedatachange()
 {
-qDebug()<<"saveUserData"<<userPicUrl<<username<<userProfile;
+//qDebug()<<"saveUserData"<<userPicUrl<<username<<userProfile;
 QSettings *configIniWrite = new QSettings("data.ini", QSettings::IniFormat);
-    qDebug()<<configIniWrite->allKeys()<< configIniWrite->isWritable();
+  //  qDebug()<<configIniWrite->allKeys()<< configIniWrite->isWritable();
    // configIniWrite->setIniCodec("utf-8");
         configIniWrite->beginGroup("userData");
         configIniWrite->setValue("userPicUrl", userPicUrl.toUtf8());

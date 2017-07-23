@@ -14,6 +14,7 @@ Rectangle{
         width: 50
         height: 50
         source: "qrc:/图片1.jpg"
+        cache: false
     }
     Rectangle{
             x:userPic.x+userPic.width+userPic.x-15

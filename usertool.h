@@ -7,11 +7,10 @@
 class UserTool : public QObject
 {
     Q_OBJECT
-    UserData *userdata;
-    JsonSender sender;
 
 public:
-
+     UserData *userdata;
+    JsonSender sender;
     explicit UserTool(QObject *parent = 0);
     explicit UserTool(UserData * userdata,QObject *parent = 0);
     Q_INVOKABLE void sendMessage(QString message);

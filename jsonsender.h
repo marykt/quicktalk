@@ -15,6 +15,7 @@ public:
     explicit JsonSender(QObject *parent = 0){}
     ~JsonSender(){}
     void sendJson(QJsonObject json){
+        qDebug()<<"I send json<<"<<json;
         QJsonDocument document;
         document.setObject(json);
         QByteArray byte_array =document.toJson(QJsonDocument::Compact);
