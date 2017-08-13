@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>TalkUi.qml</file>
+        <file>图片1.jpg</file>
+        <file>SayUi.qml</file>
+        <file>ISayUi.qml</file>
+        <file>InputAndSendUi.qml</file>
+        <file>Global.js</file>
+        <file>MeunUi.qml</file>
+        <file>UserInformationEditUi.qml</file>
+        <file>MFileDialog.qml</file>
+        <file>MFileDialogLineStyle.qml</file>
+        <file>folder-yellow-32.png</file>
+        <file>Test.qml</file>
+    </qresource>
+</RCC>
